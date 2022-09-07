@@ -1,25 +1,25 @@
 <!-- Agregar la extención-->
-{% extends 'SoCasual/base.html' %}
+{% extends 'SoCasual/productos.html' %}
 <!-- Bloque de Inicio-->
 {% block titulo %} Livin de 90 style  {% endblock %}
 <!-- Bloque de Contenido--> 
 {% block listado_productos %}
-    {% for blusa in  blusas %}
+    {% for pantalon in  pantalones %}
         <div class="col mb-5">
             <div class="card h-100">
                 <!-- Sale bagde-->
                 <div class="bagde bg-dark text-while position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                 <!-- Product image-->
-                <img class="card-img-top" src="{{url}}" alt="blusa" />
+                <img class="card-img-top" src="{{pantalon.imagen}}" alt="pantalon" />
                 <!-- Product details-->
                 <div class="card-body p-4">
                     <div class="text-center">                       
                         <!-- Product name-->
-                        <h5 class="fw-bolder">{{blusa.nombre}}</h5>
+                        <h5 class="fw-bolder">{{pantalon.nombre}}</h5>
                         <!-- Product price-->
-                        ${{blusa.precio}}
+                        ${{pantalon.precio}}
                         <br/>
-                        <p style="color: green"> Stock: {{blusa.stock}} </p>
+                        <p style="color: green"> Stock: {{pantalon.stock}} </p>
                     </div>
                 </div>
                 <!-- Product actions-->
@@ -28,17 +28,6 @@
                 </div>
             </div>
         </div>
-    {% endfor %}    
-{% endblock listado_productos%}
-{% block contenido %}
-    <h4 class="subheading">{{request.user.name}}</h4>
-    <div>
-        <form method="get">
-            {{formulario.as_p}}
-            <input type="submit" value="Buscar">
-        </form>
-    </div>     
-{% endblock contenido %}
-    
-
+    {% endfor %}          
+{% endblock %}
     

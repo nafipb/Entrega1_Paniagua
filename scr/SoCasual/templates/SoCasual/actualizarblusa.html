@@ -1,0 +1,39 @@
+<!-- Agregar la extención-->
+{% extends 'SoCasual/items.html' %}
+<!-- Bloque de Inicio-->
+{% block titulo %} Livin de 90 style  {% endblock %}
+<!-- Bloque de Contenido--> 
+{% block contenido %} 
+    <h1> Items almacenados en  Blusas</h1>
+    <form action="{% url 'actualizarblusas' %}" method= "get">
+        <p>
+            Indique el nombre de la blusa
+            <input type="text" name="nombre">   
+        </p>
+        <p>
+            Indique la talla
+            <input type="text" name="talla">   
+        </p>
+        <p>
+            Indique el precio
+            <input type="number" name="precio">   
+        </p>
+        <p>
+            Actualiza la imagen
+            <input type="image" name="imagen">   
+        </p>
+        <p>
+            Indique el stock
+            <input type="number" name="stock">   
+        </p>
+
+        <input type="submit" value="buscar">
+    </form>            
+    {% for blusa in Blusas %}
+        <p style="color:blue"> {{blusa.nombre}}
+            <a href= "{% url 'borrar_blusa' blusas.id %}">Borrar</a>
+            <a href= "{% url 'actualizar_blusa' blusas.id %}">Borrar</a>
+        </p>   
+    {% endfor %}
+        
+{% endblock contenido %} 

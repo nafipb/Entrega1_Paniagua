@@ -1,5 +1,5 @@
 <!-- Agregar la extención-->
-{% extends 'SoCasual/base.html' %}
+{% extends 'SoCasual/productos.html' %}
 <!-- Bloque de Inicio-->
 {% block titulo %} Livin de 90 style  {% endblock %}
 <!-- Bloque de Contenido--> 
@@ -10,7 +10,7 @@
                 <!-- Sale bagde-->
                 <div class="bagde bg-dark text-while position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                 <!-- Product image-->
-                <img class="card-img-top" src="{{url}}" alt="blusa" />
+                <img class="card-img-top" src="{{blusa.imagen}}" alt="blusa" />
                 <!-- Product details-->
                 <div class="card-body p-4">
                     <div class="text-center">                       
@@ -28,17 +28,6 @@
                 </div>
             </div>
         </div>
-    {% endfor %}    
-{% endblock listado_productos%}
-{% block contenido %}
-    <h4 class="subheading">{{request.user.name}}</h4>
-    <div>
-        <form method="get">
-            {{formulario.as_p}}
-            <input type="submit" value="Buscar">
-        </form>
-    </div>     
-{% endblock contenido %}
-    
-
+    {% endfor %}          
+{% endblock %}
     

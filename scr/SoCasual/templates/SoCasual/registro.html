@@ -1,0 +1,15 @@
+<!-- Agregar la extención-->
+{% extends 'SoCasual/base.html' %}
+<!-- Bloque de Inicio-->
+{% block titulo %} Living de 90 style{% endblock titulo %}
+<!-- Bloque de Contenido--> 
+{% block contenido %} 
+    <form method= "post">
+        {% if error %}
+            <p style="color:red"> {{error}}</p>
+        {% endif %}
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Registrarse">
+    </form>
+{% endblock contenido %}

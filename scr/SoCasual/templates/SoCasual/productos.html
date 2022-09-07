@@ -1,0 +1,16 @@
+<!-- Agregar la extención-->
+{% extends 'SoCasual/base.html' %}
+<!-- Bloque de Inicio-->
+{% block titulo %} Livin de 90 style{% endblock %}
+<!-- Bloque de Contenido--> 
+    {% block contenido %} 
+        <div class="container" type= "button" data-bs-toggle ="collapse">
+            <h1> En nuestra tienda tenemos las siguientes categorias: </h1>
+            <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                <li class="nav-item"><a class="nav-link" href="{% url 'blusas' %}">Blusas</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'pantalones' %}">Pantalones</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'busos' %}">Busos</a></li>
+            </ul>
+        </div>
+    {% endblock contenido %}
+   

@@ -1,0 +1,19 @@
+<!-- Agregar la extención-->
+{% extends 'SoCasual/items.html' %}
+<!-- Bloque de Inicio-->
+{% block titulo %} Livin de 90 style  {% endblock %}
+<!-- Bloque de Contenido--> 
+{% block contenido %} 
+    <h1> Items almacenados en Pantalones</h1>
+    <form  method= "POST">{% csrf_token %}
+        {{formulario.as_p}}
+        <input type="submit" value= "Crear">
+    </form>    
+    {% for pantalon in pantalones %}
+        <p style="color:blue"> {{pantalon.nombre}}
+            <a href= "{% url 'borrar_pantalones' pantalon.id %}">Borrar</a>
+            <a href= "{% url 'editar_pantalones' pantalon.id %}">Editar</a>
+        </p>   
+    {% endfor %}
+
+{% endblock contenido %} 

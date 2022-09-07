@@ -1,0 +1,13 @@
+<!-- Agregar la extención-->
+{% extends 'SoCasual/base.html' %}
+<!-- Bloque de Inicio-->
+{% block titulo %} Living de 90 style{% endblock titulo %}
+<!-- Bloque de Contenido--> 
+{% block contenido %} 
+    <h4> Editando información de:  {{request.user.username}}</h4>
+    <form method= "post"> 
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Editar">
+    </form>
+{% endblock contenido %}
