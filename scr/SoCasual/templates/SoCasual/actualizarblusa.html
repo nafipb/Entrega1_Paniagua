@@ -5,7 +5,7 @@
 <!-- Bloque de Contenido--> 
 {% block contenido %} 
     <h1> Items almacenados en  Blusas</h1>
-    <form action="{% url 'actualizarblusas' %}" method= "get">
+    <form action="{% url 'actualizar_blusa' %}" method= "get">
         <p>
             Indique el nombre de la blusa
             <input type="text" name="nombre">   
@@ -28,7 +28,8 @@
         </p>
 
         <input type="submit" value="buscar">
-    </form>            
+    </form>   
+
     {% for blusa in Blusas %}
         <p style="color:blue"> {{blusa.nombre}}
             <a href= "{% url 'borrar_blusa' blusas.id %}">Borrar</a>

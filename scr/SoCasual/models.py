@@ -10,9 +10,8 @@ class Blusas(models.Model):
     imagen= models.ImageField(upload_to="avatares", null=True, blank=True)
     stock= models.IntegerField()
 
-def __str__(self):
-    return f"{self.nombre}, {self.talla}, {self.precio}, {self.imagen}, {self.stock}"
-
+    def __str__(self):
+        return f"Nombre: {self.nombre} -Talla: {self.talla} - Precio: {self.precio} - Imagen: {self.imagen}  Stock:{self.stock}"
 class Pantalones(models.Model):
     nombre= models.CharField(max_length=150)
     talla = models.CharField(max_length=150)
@@ -20,8 +19,8 @@ class Pantalones(models.Model):
     imagen= models.ImageField(upload_to="avatares", null=True, blank=True)
     stock= models.IntegerField()
 
-def __str__(self):
-    return f"{self.nombre}, {self.talla}, {self.precio}, {self.imagen}, {self.stock}"
+    def __str__(self):
+        return f"Nombre: {self.nombre} -Talla: {self.talla} - Precio: {self.precio} - Imagen:  {self.imagen}  Stock: {self.stock}"
 
 class Busos(models.Model):
     nombre= models.CharField(max_length=150)
@@ -30,8 +29,8 @@ class Busos(models.Model):
     imagen= models.ImageField(upload_to="avatares", null=True, blank=True)
     stock= models.IntegerField()
 
-def __str__(self):
-    return f"{self.nombre}, {self.talla}, {self.precio}, {self.imagen}, {self.stock}"
+    def __str__(self):
+        return f"Nombre: {self.nombre} -Talla: {self.talla} - Precio: {self.precio} - Imagen: {self.imagen}  Stock: {self.stock}"
 
 class Medias(models.Model):
     nombre= models.CharField(max_length=150)
@@ -40,18 +39,18 @@ class Medias(models.Model):
     imagen= models.ImageField(upload_to="avatares", null=True, blank=True)
     stock= models.IntegerField()
 
-def __str__(self):
-    return f"{self.nombre}, {self.talla}, {self.precio}, {self.imagen}, {self.stock}"
-
-def get_image_filename(instance, filename):
-    title= "titulo"
-    slug= slugify(title)
-    return "imagenesAvatares/%s-%s" % (slug, filename)
-    
+    def __str__(self):
+        return f"Nombre: {self.nombre} -Talla{self.talla} - Precio {self.precio} - Imagen {self.imagen}  Stock-{self.stock}"
+  
 class Avatar(models.Model):
     user= models.ForeignKey (User, on_delete=models.CASCADE)
     imagen=models.ImageField(upload_to="avatares", null=True, blank=True)
 
     def __str__(self):
         return f"Imagen de: {self.user.username}"
+
+    def get_image_filename(instance, filename):
+        title= "titulo"
+        slug= slugify(title)
+        return "imagenesAvatares/%s-%s" % (slug, filename)
 

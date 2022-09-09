@@ -5,7 +5,7 @@
 <!-- Bloque de Contenido--> 
 {% block contenido %} 
     <h1> Items almacenados en  Pantalones</h1>
-    <form action="{% url 'buscar_pantalones' %}" method= "get">
+    <form action="{% url 'actualizarpantalones %}" method= "get">
         <p>
             Indique el nombre del pantalón
             <input type="text" name="nombre">   
@@ -32,8 +32,8 @@
     {% for pantalon in Pantalones%}
         <p style="color:blue"> {{pantalon.nombre}}
             <a href= "{% url 'borrar_pantalon' pantalon.id %}">Borrar</a>
-            <a href= "{% url 'borrar_pantalon' pantalon.id %}">Borrar</a>
+            <a href= "{% url 'actualizar_pantalon' pantalon.id %}">Actualizar</a>
         </p>   
     {% endfor %}
         
-{% endblock contenido %} 
+{% endblock contenido %} ()

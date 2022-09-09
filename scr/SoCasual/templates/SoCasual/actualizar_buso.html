@@ -1,14 +1,10 @@
 <!-- Agregar la extención-->
-{% extends 'SoCasual/productos.html' %}
+{% extends 'SoCasual/items.html' %}
 <!-- Bloque de Inicio-->
 {% block titulo %} Livin de 90 style  {% endblock %}
 <!-- Bloque de Contenido--> 
 {% block contenido %} 
-    <h1> Items almacenados en  Busos</h1>
-    <form method="post">{% csrf_token %}
-        {{formulario.as_p}}
-        <input type="submit" value="Crear">
-    </form>
+    <h1> Items almacenados en  Busos</h1>  
     {% for buso in Busos  %}
         <li>{{buso}}</li>
         <button>
@@ -16,6 +12,5 @@
             <a class="nav-link" href="{% url 'actualizar_buso' %}">Actualizar Buso</a>
         </button>
     {% endfor %}
-{% endblock contenido %} 
-
-    
+{% endblock contenido%}
+        
